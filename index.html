@@ -10,6 +10,8 @@
     .card { max-width: 720px; width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     .header-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-bottom: 18px; margin-bottom: 24px; border-bottom: 1px solid #334155; }
     .tag { background: rgba(56,189,248,0.15); color: #38bdf8; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+    .lang-wrap { display: flex; align-items: center; gap: 8px; }
+    .lang-wrap label { font-size: 0.85rem; color: #94a3b8; }
     select { background: #0f172a; color: #f8fafc; border: 1px solid #475569; padding: 8px 12px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; }
     h1 { font-size: 2.1rem; margin-bottom: 14px; }
     .desc { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 24px; }
@@ -29,7 +31,9 @@
 <div class="card">
   <div class="header-row">
     <span class="tag" id="t-badge">Premium Fintech Domain</span>
-    <select id="lang-menu" aria-label="Language">
+    <div class="lang-wrap">
+      <label for="lang-menu">Select language</label>
+      <select id="lang-menu">
       <option value="en">English (International)</option>
       <option value="sv">Svenska (SE / FI)</option>
       <option value="no">Norsk (NO)</option>
@@ -42,6 +46,7 @@
       <option value="hu">Magyar (HU)</option>
       <option value="hr">Hrvatski / Slovenščina (HR / SI)</option>
     </select>
+    </div>
   </div>
 
   <h1 id="t-title">valuta.com is for sale</h1>
@@ -63,10 +68,10 @@
     <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
     <input type="hidden" name="_captcha" value="false">
     <input type="text" id="f-name" name="name" required>
-    <input type="text" id="f-company" name="company">
+    <input type="text" id="f-company" name="company" required>
     <input type="email" id="f-email" name="email" required>
     <input type="text" id="f-offer" name="offer" required>
-    <textarea id="f-msg" name="message" rows="3"></textarea>
+    <textarea id="f-msg" name="message" rows="3" required></textarea>
     <button type="submit" id="t-btn"></button>
   </form>
 
@@ -84,10 +89,10 @@ var langData = {
     b2h: "Category Authority",
     b2t: "Short, exact-match .com domain built for trust in fintech, banking, and FX.",
     name: "Your name",
-    company: "Company (optional)",
+    company: "Company",
     email: "Your email",
     offer: "Your offer (EUR / USD / SEK)",
-    msg: "Message (optional)",
+    msg: "Message",
     btn: "Send offer to Mr Andersen",
     seller: "Seller: Mr Andersen • Direct acquisition without broker fees"
   },
@@ -100,10 +105,10 @@ var langData = {
     b2h: "Maximal auktoritet",
     b2t: "Kort, exakt .com-domän som skapar omedelbart förtroende inom fintech och finans.",
     name: "Ditt namn",
-    company: "Företag (valfritt)",
+    company: "Företag",
     email: "Din e-postadress",
     offer: "Ditt bud (SEK / EUR / USD)",
-    msg: "Meddelande (valfritt)",
+    msg: "Meddelande",
     btn: "Skicka bud till Mr Andersen",
     seller: "Säljare: Mr Andersen • Direktkontakt utan mellanhänder"
   },
@@ -116,10 +121,10 @@ var langData = {
     b2h: "Maksimal autoritet",
     b2t: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
     name: "Ditt navn",
-    company: "Firma (valgfritt)",
+    company: "Firma",
     email: "Din e-postadresse",
     offer: "Ditt bud (NOK / EUR / USD)",
-    msg: "Melding (valgfritt)",
+    msg: "Melding",
     btn: "Send bud til Mr Andersen",
     seller: "Selger: Mr Andersen • Direkte kontakt uten mellomledd"
   },
@@ -132,10 +137,10 @@ var langData = {
     b2h: "Maksimal autoritet",
     b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
     name: "Dit navn",
-    company: "Virksomhed (valgfrit)",
+    company: "Virksomhed",
     email: "Din e-mailadresse",
     offer: "Dit bud (DKK / EUR / USD)",
-    msg: "Besked (valgfrit)",
+    msg: "Besked",
     btn: "Send bud til Mr Andersen",
     seller: "Sælger: Mr Andersen • Direkte kontakt uden mellemled"
   },
@@ -148,10 +153,10 @@ var langData = {
     b2h: "Maximale autoriteit",
     b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
     name: "Uw naam",
-    company: "Bedrijf (optioneel)",
+    company: "Bedrijf",
     email: "Uw e-mailadres",
     offer: "Uw bod (EUR / USD)",
-    msg: "Bericht (optioneel)",
+    msg: "Bericht",
     btn: "Stuur bod naar Mr Andersen",
     seller: "Verkoper: Mr Andersen • Direct contact zonder tussenpersonen"
   },
@@ -164,10 +169,10 @@ var langData = {
     b2h: "Massima Autorevolezza",
     b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
     name: "Il tuo nome",
-    company: "Azienda (opzionale)",
+    company: "Azienda",
     email: "La tua email",
     offer: "La tua offerta (EUR / USD)",
-    msg: "Messaggio (opzionale)",
+    msg: "Messaggio",
     btn: "Invia offerta a Mr Andersen",
     seller: "Venditore: Mr Andersen • Contatto diretto senza intermediari"
   },
@@ -180,10 +185,10 @@ var langData = {
     b2h: "Maximale Autorität",
     b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
     name: "Ihr Name",
-    company: "Unternehmen (optional)",
+    company: "Unternehmen",
     email: "Ihre E-Mail-Adresse",
     offer: "Ihr Gebot (EUR / CHF / USD)",
-    msg: "Nachricht (optional)",
+    msg: "Nachricht",
     btn: "Gebot an Mr Andersen senden",
     seller: "Verkäufer: Mr Andersen • Direkter Kauf ohne Maklergebühren"
   },
@@ -196,10 +201,10 @@ var langData = {
     b2h: "Maximální autorita",
     b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
     name: "Vaše jméno",
-    company: "Společnost (volitelné)",
+    company: "Společnost",
     email: "Váš e-mail",
     offer: "Vaše nabídka (CZK / EUR / USD)",
-    msg: "Zpráva (volitelné)",
+    msg: "Zpráva",
     btn: "Odeslat nabídku panu Andersenovi",
     seller: "Prodejce: Mr Andersen • Přímý kontakt bez zprostředkovatelů"
   },
@@ -212,10 +217,10 @@ var langData = {
     b2h: "Maximálna autorita",
     b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
     name: "Vaše meno",
-    company: "Spoločnosť (voliteľné)",
+    company: "Spoločnosť",
     email: "Váš e-mail",
     offer: "Vaša ponuka (EUR / USD)",
-    msg: "Správa (voliteľné)",
+    msg: "Správa",
     btn: "Odoslať ponuku pánovi Andersenovi",
     seller: "Predajca: Mr Andersen • Priamy kontakt bez sprostredkovateľov"
   },
@@ -228,10 +233,10 @@ var langData = {
     b2h: "Maximális tekintély",
     b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
     name: "Az Ön neve",
-    company: "Cég (opcionális)",
+    company: "Cég",
     email: "Az Ön e-mail címe",
     offer: "Az Ön ajánlata (HUF / EUR / USD)",
-    msg: "Üzenet (opcionális)",
+    msg: "Üzenet",
     btn: "Ajánlat küldése Mr Andersennek",
     seller: "Eladó: Mr Andersen • Közvetlen kapcsolat közvetítők nélkül"
   },
@@ -244,10 +249,10 @@ var langData = {
     b2h: "Maksimalni autoritet",
     b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
     name: "Vaše ime",
-    company: "Tvrtka (opcionalno)",
+    company: "Tvrtka",
     email: "Vaš e-mail",
     offer: "Vaša ponuda (EUR / USD)",
-    msg: "Poruka (opcionalno)",
+    msg: "Poruka",
     btn: "Pošalji ponudu gospodinu Andersenu",
     seller: "Prodavač: Mr Andersen • Izravan kontakt bez posrednika"
   }
@@ -280,10 +285,7 @@ menu.addEventListener("change", function () {
   updatePageLanguage(this.value);
 });
 
-var navLang = (navigator.language || navigator.userLanguage || "en").toLowerCase().substring(0, 2);
-var map = { nb: "no", nn: "no", sl: "hr", sr: "hr", bs: "hr" };
-var startLang = map[navLang] || (langData[navLang] ? navLang : "en");
-updatePageLanguage(startLang);
+updatePageLanguage("en");
 </script>
 </body>
 </html>

@@ -22,6 +22,11 @@
     input, textarea { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: #f8fafc; font-size: 1rem; font-family: inherit; }
     button { background: #38bdf8; color: #0f172a; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 4px; }
     button:hover { background: #0284c7; color: #ffffff; }
+    .ideas { margin-bottom: 28px; }
+    .ideas h2 { font-size: 1.05rem; color: #38bdf8; margin-bottom: 10px; }
+    .ideas ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .ideas li { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px 12px 10px 34px; font-size: 0.9rem; position: relative; }
+    .ideas li::before { content: "✓"; position: absolute; left: 12px; color: #38bdf8; font-weight: 700; }
     .status { display: none; padding: 18px; border-radius: 10px; font-size: 1.05rem; text-align: center; }
     .status.ok { display: block; background: rgba(34,197,94,0.12); border: 1px solid #22c55e; color: #bbf7d0; }
     .status.err { display: block; background: rgba(239,68,68,0.12); border: 1px solid #ef4444; color: #fecaca; margin-top: 12px; }
@@ -66,6 +71,11 @@
     </div>
   </div>
 
+  <div class="ideas">
+    <h2 id="t-ideas-head"></h2>
+    <ul id="t-ideas"></ul>
+  </div>
+
   <form id="offer-form" action="https://formsubmit.co/bp_andersen@hotmail.com" method="POST">
     <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
     <input type="hidden" name="_captcha" value="false">
@@ -95,6 +105,8 @@ var langData = {
     b2t: "Short, exact-match .com domain built for trust in fintech, banking, and FX.",
     name: "Your name",
     company: "Company",
+    ideasHead: "Perfect for",
+    ideas: ["Multi-currency card & travel money", "Currency exchange & money transfers", "Forex & trading platform", "Neobank or payment app", "Rate comparison & currency converter", "Stablecoins & digital currencies"],
     thanks: "Thank you! Your offer has been sent. Mr Andersen will get back to you soon.",
     error: "Something went wrong. Please try again.",
     email: "Your email",
@@ -113,6 +125,8 @@ var langData = {
     b2t: "Kort, exakt .com-domän som skapar omedelbart förtroende inom fintech och finans.",
     name: "Ditt namn",
     company: "Företag",
+    ideasHead: "Perfekt för",
+    ideas: ["Flervalutakort och resepengar", "Valutaväxling och penningöverföringar", "Forex- och handelsplattform", "Neobank eller betalapp", "Kursjämförelse och valutaomvandlare", "Stablecoins och digitala valutor"],
     thanks: "Tack! Ditt bud har skickats. Mr Andersen återkommer till dig snart.",
     error: "Något gick fel. Försök igen.",
     email: "Din e-postadress",
@@ -131,6 +145,8 @@ var langData = {
     b2t: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
     name: "Ditt navn",
     company: "Firma",
+    ideasHead: "Perfekt for",
+    ideas: ["Flervalutakort og reisepenger", "Valutaveksling og pengeoverføringer", "Forex- og handelsplattform", "Neobank eller betalingsapp", "Kursammenligning og valutakalkulator", "Stablecoins og digitale valutaer"],
     thanks: "Takk! Budet ditt er sendt. Mr Andersen tar kontakt snart.",
     error: "Noe gikk galt. Prøv igjen.",
     email: "Din e-postadresse",
@@ -149,6 +165,8 @@ var langData = {
     b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
     name: "Dit navn",
     company: "Virksomhed",
+    ideasHead: "Perfekt til",
+    ideas: ["Flervalutakort og rejsepenge", "Valutaveksling og pengeoverførsler", "Forex- og handelsplatform", "Neobank eller betalingsapp", "Kursammenligning og valutaomregner", "Stablecoins og digitale valutaer"],
     thanks: "Tak! Dit bud er sendt. Mr Andersen vender snart tilbage til dig.",
     error: "Noget gik galt. Prøv igen.",
     email: "Din e-mailadresse",
@@ -167,6 +185,8 @@ var langData = {
     b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
     name: "Uw naam",
     company: "Bedrijf",
+    ideasHead: "Perfect voor",
+    ideas: ["Multivaluta-kaart en reisgeld", "Valutawissel en geldtransfers", "Forex- en handelsplatform", "Neobank of betaalapp", "Koersvergelijking en valutaomrekenaar", "Stablecoins en digitale valuta"],
     thanks: "Bedankt! Uw bod is verzonden. Mr Andersen neemt binnenkort contact met u op.",
     error: "Er ging iets mis. Probeer het opnieuw.",
     email: "Uw e-mailadres",
@@ -185,6 +205,8 @@ var langData = {
     b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
     name: "Il tuo nome",
     company: "Azienda",
+    ideasHead: "Ideale per",
+    ideas: ["Carta multivaluta e denaro per viaggi", "Cambio valuta e trasferimenti di denaro", "Piattaforma forex e di trading", "Neobanca o app di pagamento", "Confronto cambi e convertitore di valuta", "Stablecoin e valute digitali"],
     thanks: "Grazie! La tua offerta è stata inviata. Mr Andersen ti risponderà a breve.",
     error: "Qualcosa è andato storto. Riprova.",
     email: "La tua email",
@@ -203,6 +225,8 @@ var langData = {
     b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
     name: "Ihr Name",
     company: "Unternehmen",
+    ideasHead: "Ideal für",
+    ideas: ["Multiwährungskarte und Reisegeld", "Geldwechsel und Auslandsüberweisungen", "Forex- und Handelsplattform", "Neobank oder Zahlungs-App", "Kursvergleich und Währungsrechner", "Stablecoins und digitale Währungen"],
     thanks: "Vielen Dank! Ihr Gebot wurde gesendet. Mr Andersen meldet sich in Kürze bei Ihnen.",
     error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     email: "Ihre E-Mail-Adresse",
@@ -221,6 +245,8 @@ var langData = {
     b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
     name: "Vaše jméno",
     company: "Společnost",
+    ideasHead: "Ideální pro",
+    ideas: ["Vícemenová karta a cestovní peníze", "Směnárna a převody peněz", "Forexová a obchodní platforma", "Neobanka nebo platební aplikace", "Srovnání kurzů a převodník měn", "Stablecoiny a digitální měny"],
     thanks: "Děkujeme! Vaše nabídka byla odeslána. Mr Andersen se vám brzy ozve.",
     error: "Něco se pokazilo. Zkuste to prosím znovu.",
     email: "Váš e-mail",
@@ -239,6 +265,8 @@ var langData = {
     b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
     name: "Vaše meno",
     company: "Spoločnosť",
+    ideasHead: "Ideálne pre",
+    ideas: ["Viacmenová karta a cestovné peniaze", "Zmenáreň a prevody peňazí", "Forexová a obchodná platforma", "Neobanka alebo platobná aplikácia", "Porovnanie kurzov a prevodník mien", "Stablecoiny a digitálne meny"],
     thanks: "Ďakujeme! Vaša ponuka bola odoslaná. Mr Andersen sa vám čoskoro ozve.",
     error: "Niečo sa pokazilo. Skúste to prosím znova.",
     email: "Váš e-mail",
@@ -257,6 +285,8 @@ var langData = {
     b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
     name: "Az Ön neve",
     company: "Cég",
+    ideasHead: "Ideális választás",
+    ideas: ["Többdevizás kártya és utazási pénz", "Pénzváltás és pénzátutalás", "Forex- és kereskedési platform", "Neobank vagy fizetési alkalmazás", "Árfolyam-összehasonlító és valutaváltó", "Stablecoinok és digitális valuták"],
     thanks: "Köszönjük! Ajánlatát elküldtük. Mr Andersen hamarosan felveszi Önnel a kapcsolatot.",
     error: "Hiba történt. Kérjük, próbálja újra.",
     email: "Az Ön e-mail címe",
@@ -275,6 +305,8 @@ var langData = {
     b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
     name: "Vaše ime",
     company: "Tvrtka",
+    ideasHead: "Idealno za",
+    ideas: ["Viševalutna kartica i putni novac", "Mjenjačnica i prijenos novca", "Forex i trgovačka platforma", "Neobanka ili platna aplikacija", "Usporedba tečajeva i pretvarač valuta", "Stablecoini i digitalne valute"],
     thanks: "Hvala! Vaša ponuda je poslana. Mr Andersen će vam se uskoro javiti.",
     error: "Nešto je pošlo po zlu. Pokušajte ponovno.",
     email: "Vaš e-mail",
@@ -313,6 +345,14 @@ function updatePageLanguage(code) {
   document.getElementById("t-btn").textContent = d.btn;
   document.getElementById("t-seller").textContent = d.seller;
   document.title = "valuta.com – " + d.badge;
+  document.getElementById("t-ideas-head").textContent = d.ideasHead;
+  var ul = document.getElementById("t-ideas");
+  ul.innerHTML = "";
+  d.ideas.forEach(function (txt) {
+    var li = document.createElement("li");
+    li.textContent = txt;
+    ul.appendChild(li);
+  });
   currentLang = lang;
   renderStatus();
 }

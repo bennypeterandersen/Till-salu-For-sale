@@ -6,25 +6,28 @@
   <title>valuta.com – Premium Finance Domain For Sale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #09090b;
-      --card: #111113;
-      --panel: #0c0c0e;
-      --line: rgba(201,169,110,0.28);
-      --line-soft: rgba(255,255,255,0.08);
-      --gold: #c9a96e;
-      --gold-light: #ecd9a8;
-      --text: #f2efe8;
-      --muted: #9a958a;
-      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --bg: #070d18;
+      --card: #0d1626;
+      --panel: #0a1220;
+      --line: rgba(61,220,151,0.30);
+      --line-soft: rgba(148,170,205,0.16);
+      --accent: #3ddc97;
+      --accent-2: #7dd3fc;
+      --text: #eaf0fa;
+      --muted: #8a9bb5;
       --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--sans);
-      background: radial-gradient(ellipse at 50% -10%, #1d1a14 0%, var(--bg) 60%);
+      background:
+        linear-gradient(rgba(148,170,205,0.04) 1px, transparent 1px) 0 0 / 100% 40px,
+        linear-gradient(90deg, rgba(148,170,205,0.04) 1px, transparent 1px) 0 0 / 40px 100%,
+        radial-gradient(ellipse at 50% -10%, #11233f 0%, var(--bg) 62%);
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -34,80 +37,95 @@
       -webkit-font-smoothing: antialiased;
     }
     .card {
-      max-width: 760px; width: 100%;
-      background: linear-gradient(180deg, #151517 0%, var(--card) 100%);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 48px 44px;
-      box-shadow: 0 0 0 6px rgba(201,169,110,0.04), 0 30px 80px rgba(0,0,0,0.7);
-      position: relative;
+      max-width: 780px; width: 100%;
+      background: linear-gradient(180deg, #101b2f 0%, var(--card) 100%);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 0 44px 44px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+      position: relative; overflow: hidden;
     }
     .card::before {
-      content: ""; position: absolute; top: 0; left: 44px; right: 44px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
+    .chart { position: absolute; top: 70px; right: 0; width: 55%; height: 150px; opacity: 0.55; pointer-events: none; }
+    .ticker { margin: 3px -44px 0; overflow: hidden; border-bottom: 1px solid var(--line-soft); background: rgba(10,18,32,0.7); }
+    .ticker-track { display: inline-flex; white-space: nowrap; padding: 9px 0; animation: scroll 38s linear infinite; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; }
+    .ticker-track span { padding: 0 18px; }
+    .ticker-track b { color: var(--accent); font-weight: 500; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
     .header-row {
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
-      padding-bottom: 22px; margin-bottom: 34px; border-bottom: 1px solid var(--line-soft);
+      padding: 24px 0 20px; margin-bottom: 30px; position: relative;
     }
     .tag {
-      color: var(--gold); border: 1px solid var(--line); padding: 6px 14px; border-radius: 2px;
-      font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em;
+      color: var(--accent); background: rgba(61,220,151,0.08); border: 1px solid var(--line); padding: 6px 12px; border-radius: 4px;
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em;
     }
     .lang-wrap { display: flex; align-items: center; gap: 10px; }
-    .lang-wrap label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; }
+    .lang-wrap label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
     select {
       background: var(--panel); color: var(--text); border: 1px solid var(--line-soft);
-      padding: 9px 12px; border-radius: 2px; font-size: 0.9rem; font-family: inherit; cursor: pointer;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.9rem; font-family: inherit; cursor: pointer;
     }
-    select:focus, input:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.12); }
-    select option { background: #111113; color: var(--text); }
+    select:focus, input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(61,220,151,0.14); }
+    select option { background: #0d1626; color: var(--text); }
     h1 {
-      font-family: var(--serif); font-weight: 500; font-size: 3rem; line-height: 1.1;
-      letter-spacing: 0.01em; margin-bottom: 18px; color: var(--gold-light);
+      font-family: var(--sans); font-weight: 700; font-size: 2.7rem; line-height: 1.12;
+      letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); position: relative;
     }
-    h1::after { content: ""; display: block; width: 56px; height: 1px; background: var(--gold); margin-top: 18px; }
-    .desc { color: #cfcabe; font-size: 1.02rem; font-weight: 400; margin-bottom: 32px; }
+    h1::after { content: ""; display: block; width: 48px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); margin-top: 18px; }
+    .desc { color: #b9c6dc; font-size: 1.02rem; margin-bottom: 30px; max-width: 640px; position: relative; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 32px; }
-    .box { background: transparent; border: 1px solid var(--line-soft); border-top: 1px solid var(--line); padding: 18px; border-radius: 2px; font-size: 0.9rem; color: #cfcabe; }
-    .box strong { display: block; font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--gold); margin-bottom: 6px; letter-spacing: 0.02em; }
-    .ideas { margin-bottom: 36px; }
-    .ideas h2 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--gold); margin-bottom: 14px; letter-spacing: 0.04em; }
+    .box { background: rgba(10,18,32,0.6); border: 1px solid var(--line-soft); border-left: 3px solid var(--accent); padding: 16px 18px; border-radius: 6px; font-size: 0.9rem; color: #b9c6dc; }
+    .box strong { display: block; font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .ideas { margin-bottom: 34px; }
+    .ideas h2 { font-family: var(--mono); font-weight: 500; font-size: 0.78rem; color: var(--accent); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.14em; }
     .ideas ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
-    .ideas li { background: transparent; border: 1px solid var(--line-soft); border-radius: 2px; padding: 11px 14px 11px 34px; font-size: 0.88rem; color: #cfcabe; position: relative; }
-    .ideas li::before { content: "◆"; position: absolute; left: 14px; top: 12px; font-size: 0.6rem; color: var(--gold); }
+    .ideas li { background: rgba(10,18,32,0.6); border: 1px solid var(--line-soft); border-radius: 6px; padding: 11px 14px 11px 36px; font-size: 0.88rem; color: #cbd6e8; position: relative; }
+    .ideas li::before { content: "↗"; position: absolute; left: 14px; top: 9px; font-size: 0.95rem; color: var(--accent); font-weight: 700; }
     form { display: flex; flex-direction: column; gap: 12px; padding-top: 28px; border-top: 1px solid var(--line-soft); }
     input, textarea, form select {
-      width: 100%; padding: 13px 15px; border-radius: 2px; border: 1px solid var(--line-soft);
+      width: 100%; padding: 13px 15px; border-radius: 6px; border: 1px solid var(--line-soft);
       background: var(--panel); color: var(--text); font-size: 0.95rem; font-family: inherit;
     }
-    input::placeholder, textarea::placeholder { color: #6f6b62; }
+    #f-custom { font-family: var(--mono); }
+    input::placeholder, textarea::placeholder { color: #5d6e89; }
     button {
-      background: linear-gradient(135deg, #b8975a 0%, var(--gold-light) 50%, #b8975a 100%);
-      color: #14110a; border: none; padding: 16px; border-radius: 2px;
-      font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em;
+      background: linear-gradient(135deg, #2fc785 0%, var(--accent) 55%, #5be3b0 100%);
+      color: #04140d; border: none; padding: 16px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
       cursor: pointer; margin-top: 6px; transition: transform 0.08s, opacity 0.15s, filter 0.15s;
     }
     button:hover { filter: brightness(1.08); }
     button:active { transform: scale(0.985); }
     button:disabled { opacity: 0.65; cursor: wait; }
     .note { font-size: 0.8rem; color: var(--muted); }
-    .note.top { color: #b9b4a8; }
-    .status { display: none; padding: 20px; border-radius: 2px; font-size: 1rem; text-align: center; }
-    .status.ok { display: block; background: rgba(201,169,110,0.08); border: 1px solid var(--line); color: var(--gold-light); font-family: var(--serif); font-size: 1.25rem; }
+    .note.top { color: #aab8d0; }
+    .status { display: none; padding: 20px; border-radius: 6px; font-size: 1rem; text-align: center; }
+    .status.ok { display: block; background: rgba(61,220,151,0.1); border: 1px solid var(--line); color: #b8f3d8; }
     .status.err { display: block; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.5); color: #fecaca; margin-top: 12px; }
-    .footer { margin-top: 28px; text-align: center; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; }
+    .footer { margin-top: 28px; text-align: center; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
     @media (max-width: 520px) {
-      .card { padding: 32px 20px; }
-      .card::before { left: 20px; right: 20px; }
-      h1 { font-size: 2.2rem; }
+      .card { padding: 0 20px 32px; }
+      .ticker { margin: 3px -20px 0; }
+      h1 { font-size: 2rem; }
+      .chart { display: none; }
     }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="header-row">
+  <svg class="chart" viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3ddc97" stop-opacity="0.35"/><stop offset="1" stop-color="#3ddc97" stop-opacity="0"/></linearGradient></defs>
+    <path d="M0 120 L40 108 L80 114 L120 88 L160 96 L200 66 L240 78 L280 46 L320 56 L360 24 L400 14 L400 150 L0 150 Z" fill="url(#g)"/>
+    <polyline points="0,120 40,108 80,114 120,88 160,96 200,66 240,78 280,46 320,56 360,24 400,14" fill="none" stroke="#3ddc97" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span><b>EUR</b>/USD</span><span><b>EUR</b>/SEK</span><span><b>EUR</b>/NOK</span><span><b>EUR</b>/DKK</span><span><b>EUR</b>/CZK</span><span><b>EUR</b>/HUF</span><span><b>EUR</b>/CHF</span><span><b>EUR</b>/GBP</span><span>€ $ kr Kč Ft £ Fr</span><span><b>EUR</b>/USD</span><span><b>EUR</b>/SEK</span><span><b>EUR</b>/NOK</span><span><b>EUR</b>/DKK</span><span><b>EUR</b>/CZK</span><span><b>EUR</b>/HUF</span><span><b>EUR</b>/CHF</span><span><b>EUR</b>/GBP</span><span>€ $ kr Kč Ft £ Fr</span></div></div>
+    <div class="header-row">
     <span class="tag" id="t-badge">Premium Fintech Domain</span>
     <div class="lang-wrap">
       <label for="lang-menu">Select language</label>

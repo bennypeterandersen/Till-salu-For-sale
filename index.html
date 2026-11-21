@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +5,11 @@ html
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>valuta.com – Premium Finance Domain For Sale</title>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-hover: #0284c7;
-      --border: #334155;
-    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: #0f172a;
+      color: #f8fafc;
       line-height: 1.6;
       padding: 20px;
       display: flex;
@@ -27,101 +17,86 @@ html
       align-items: center;
       min-height: 100vh;
     }
-    .container {
-      max-width: 740px;
+    .card {
+      max-width: 720px;
       width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: #1e293b;
+      border: 1px solid #334155;
       border-radius: 16px;
-      padding: 40px;
+      padding: 36px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
-    .top-bar {
+    .header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #334155;
     }
-    .badge {
+    .tag {
       background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
+      color: #38bdf8;
       padding: 5px 12px;
       border-radius: 20px;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .lang-select-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     select {
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #475569;
       padding: 8px 12px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       cursor: pointer;
-      outline: none;
-    }
-    select:focus {
-      border-color: var(--accent);
     }
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+      font-size: 2.1rem;
+      margin-bottom: 14px;
     }
-    .pitch {
+    .desc {
       color: #cbd5e1;
       font-size: 1.05rem;
       margin-bottom: 24px;
     }
-    .highlights {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
-    .highlight-box {
-      background: rgba(15, 23, 42, 0.5);
-      border: 1px solid var(--border);
+    .box {
+      background: #0f172a;
+      border: 1px solid #334155;
       padding: 14px;
       border-radius: 10px;
       font-size: 0.9rem;
     }
-    .highlight-box strong {
+    .box strong {
       display: block;
-      color: var(--accent);
+      color: #38bdf8;
       margin-bottom: 4px;
     }
     form {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
     input, textarea {
       width: 100%;
       padding: 12px 14px;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #f8fafc;
       font-size: 1rem;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    button[type="submit"] {
-      background: var(--accent);
+    button {
+      background: #38bdf8;
       color: #0f172a;
       border: none;
       padding: 14px;
@@ -129,268 +104,266 @@ html
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 6px;
+      margin-top: 4px;
     }
-    button[type="submit"]:hover {
-      background: var(--accent-hover);
-      color: #fff;
+    button:hover {
+      background: #0284c7;
+      color: #ffffff;
     }
-    .seller {
-      margin-top: 20px;
+    .footer {
+      margin-top: 18px;
       text-align: center;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: #94a3b8;
     }
     @media (max-width: 480px) {
-      .container { padding: 24px 18px; }
-      h1 { font-size: 1.8rem; }
+      .card { padding: 22px 16px; }
+      h1 { font-size: 1.7rem; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="top-bar">
-    <div class="badge" id="badge">Premium Fintech Domain</div>
-    <div class="lang-select-wrapper">
-      <label for="lang-select" style="font-size: 0.85rem; color: var(--muted);">🌐</label>
-      <select id="lang-select">
-        <option value="en">English (International)</option>
-        <option value="sv">Svenska (SE / FI)</option>
-        <option value="no">Norsk (NO)</option>
-        <option value="da">Dansk (DK)</option>
-        <option value="nl">Nederlands (NL / BE)</option>
-        <option value="it">Italiano (IT / CH)</option>
-        <option value="de">Deutsch (DE / AT / CH)</option>
-        <option value="cs">Čeština (CZ)</option>
-        <option value="sk">Slovenčina (SK)</option>
-        <option value="hu">Magyar (HU)</option>
-        <option value="hr">Hrvatski / Slovenščina (HR / SI)</option>
-      </select>
-    </div>
+<div class="card">
+  <div class="header-row">
+    <span class="tag" id="t-badge">Premium Fintech Domain</span>
+    <select id="lang-menu" aria-label="Language">
+      <option value="en">English (International)</option>
+      <option value="sv">Svenska (SE / FI)</option>
+      <option value="no">Norsk (NO)</option>
+      <option value="da">Dansk (DK)</option>
+      <option value="nl">Nederlands (NL / BE)</option>
+      <option value="it">Italiano (IT / CH)</option>
+      <option value="de">Deutsch (DE / AT / CH)</option>
+      <option value="cs">Čeština (CZ)</option>
+      <option value="sk">Slovenčina (SK)</option>
+      <option value="hu">Magyar (HU)</option>
+      <option value="hr">Hrvatski / Slovenščina (HR / SI)</option>
+    </select>
   </div>
 
-  <h1 id="title">valuta.com is for sale</h1>
-  <p class="pitch" id="pitch">
-    One of Europe's strongest category-defining domains in finance. "Valuta" is the exact term for currency and foreign exchange across more than a dozen European markets—including the Nordics, Benelux, Italy, Czechia, Slovakia, Hungary, and the Balkans. Built for fintechs, neobanks, payment gateways, and FX platforms.
+  <h1 id="t-title">valuta.com is for sale</h1>
+  <p class="desc" id="t-pitch">
+    One of Europe's strongest category-defining domains in finance. Valuta is the exact term for currency and foreign exchange across more than a dozen European markets, including the Nordics, Benelux, Italy, Czechia, Slovakia, Hungary, and the Balkans.
   </p>
 
-  <div class="highlights">
-    <div class="highlight-box">
-      <strong id="h1-title">15+ Markets, 1 Word</strong>
-      <span id="h1-desc">Instant recognition across the Nordics, Benelux, Italy, Central Europe & Balkans.</span>
+  <div class="grid">
+    <div class="box">
+      <strong id="t-b1-head">15+ Markets, 1 Word</strong>
+      <span id="t-b1-text">Instant recognition across the Nordics, Benelux, Italy, Central Europe & Balkans.</span>
     </div>
-    <div class="highlight-box">
-      <strong id="h2-title">Category Authority</strong>
-      <span id="h2-desc">Short, exact-match .com domain engineered for trust in financial services.</span>
+    <div class="box">
+      <strong id="t-b2-head">Category Authority</strong>
+      <span id="t-b2-text">Short, exact-match .com domain built for trust in fintech, banking, and FX.</span>
     </div>
   </div>
 
-  <form action="mailto:bp_andersen@://hotmail.com" method="post" enctype="text/plain">
-    <input type="text" id="name" name="Namn" placeholder="Your name" required>
-    <input type="email" id="email" name="E-post" placeholder="Your email" required>
-    <input type="text" id="offer" name="Bud" placeholder="Your offer (EUR / USD / SEK)" required>
-    <textarea id="message" name="Meddelande" rows="3" placeholder="Message (optional)"></textarea>
-    <button type="submit" id="submit-btn">Send offer to Benny</button>
+  <form action="https://formsubmit.co" method="POST">
+    <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" id="f-name" name="name" placeholder="Your name" required>
+    <input type="email" id="f-email" name="email" placeholder="Your email" required>
+    <input type="text" id="f-offer" name="offer" placeholder="Your offer (EUR / USD / SEK)" required>
+    <textarea id="f-msg" name="message" rows="3" placeholder="Message (optional)"></textarea>
+    <button type="submit" id="t-btn">Send offer to Benny</button>
   </form>
 
-  <div class="seller" id="seller">Seller: Benny • Direct acquisition without broker fees</div>
+  <div class="footer" id="t-seller">Seller: Benny • Direct acquisition without broker fees</div>
 </div>
 
 <script>
-  const translations = {
-    sv: {
-      badge: "Premium Fintech-domän",
-      title: "valuta.com är till salu",
-      pitch: "Ett av Europas starkaste generiska domännamn inom finans. Ordet \"valuta\" används rakt av inom bank, finans och vardagsspråk i över ett dussin länder – från Norden och Benelux till Italien, Tjeckien, Slovakien, Ungern och Balkan. Ger omedelbar auktoritet för fintech, neobanker, betalningslösningar och FX-plattformar.",
-      h1Title: "15+ marknader, 1 ord",
-      h1Desc: "Direkt igenkänning i Norden, Benelux, Italien, Centraleuropa & Balkan.",
-      h2Title: "Maximal auktoritet",
-      h2Desc: "Kort, exakt .com-domän som bygger omedelbart förtroende inom finans.",
-      name: "Ditt namn",
-      email: "Din e-postadress",
-      offer: "Ditt bud (SEK / EUR / USD)",
-      message: "Meddelande (valfritt)",
-      submit: "Skicka bud till Benny",
-      seller: "Säljare: Benny • Direktkontakt utan mellanhänder"
-    },
+  var langData = {
     en: {
       badge: "Premium Fintech Domain",
       title: "valuta.com is for sale",
-      pitch: "One of Europe's strongest category-defining domains in finance. \"Valuta\" is the exact term for currency and foreign exchange across more than a dozen European markets—including the Nordics, Benelux, Italy, Czechia, Slovakia, Hungary, and the Balkans. Built for fintechs, neobanks, payment gateways, and FX platforms.",
-      h1Title: "15+ Markets, 1 Word",
-      h1Desc: "Instant recognition across the Nordics, Benelux, Italy, Central Europe & Balkans.",
-      h2Title: "Category Authority",
-      h2Desc: "Short, exact-match .com domain engineered for trust in financial services.",
+      pitch: "One of Europe's strongest category-defining domains in finance. Valuta is the exact term for currency and foreign exchange across more than a dozen European markets, including the Nordics, Benelux, Italy, Czechia, Slovakia, Hungary, and the Balkans.",
+      b1h: "15+ Markets, 1 Word",
+      b1t: "Instant recognition across the Nordics, Benelux, Italy, Central Europe & Balkans.",
+      b2h: "Category Authority",
+      b2t: "Short, exact-match .com domain built for trust in fintech, banking, and FX.",
       name: "Your name",
       email: "Your email",
       offer: "Your offer (EUR / USD / SEK)",
-      message: "Message (optional)",
-      submit: "Send offer to Benny",
+      msg: "Message (optional)",
+      btn: "Send offer to Benny",
       seller: "Seller: Benny • Direct acquisition without broker fees"
+    },
+    sv: {
+      badge: "Premium Fintech-domän",
+      title: "valuta.com är till salu",
+      pitch: "Ett av Europas starkaste generiska domännamn inom finans. Ordet valuta används rakt av inom bank, finans och vardagsspråk i över ett dussin länder – från Norden och Benelux till Italien, Tjeckien, Slovakien, Ungern och Balkan.",
+      b1h: "15+ marknader, 1 ord",
+      b1t: "Direkt igenkänning i Norden, Benelux, Italien, Centraleuropa & Balkan.",
+      b2h: "Maximal auktoritet",
+      b2t: "Kort, exakt .com-domän som skapar omedelbart förtroende inom fintech och finans.",
+      name: "Ditt namn",
+      email: "Din e-postadress",
+      offer: "Ditt bud (SEK / EUR / USD)",
+      msg: "Meddelande (valfritt)",
+      btn: "Skicka bud till Benny",
+      seller: "Säljare: Benny • Direktkontakt utan mellanhänder"
     },
     no: {
       badge: "Premium Fintech-domene",
       title: "valuta.com er til salgs",
-      pitch: "Et av Europas sterkeste generiske domenenavn innen finans. Ordet «valuta» brukes direkte innen bank, finans og dagligtale i over et dusin land – fra Norden og Benelux til Italia, Tsjekkia, Slovakia, Ungarn og Balkan. Gir umiddelbar autoritet for fintech, betaling og valutahandel.",
-      h1Title: "15+ markeder, 1 ord",
-      h1Desc: "Direkte gjenkjennelse i Norden, Benelux, Italia, Sentral-Europa og Balkan.",
-      h2Title: "Maksimal autoritet",
-      h2Desc: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
+      pitch: "Et av Europas sterkeste generiske domenenavn innen finans. Ordet valuta brukes direkte innen bank, finans og dagligtale i over et dusin land – fra Norden og Benelux til Italia, Tsjekkia, Slovakia, Ungarn og Balkan.",
+      b1h: "15+ markeder, 1 ord",
+      b1t: "Direkte gjenkjennelse i Norden, Benelux, Italia, Sentral-Europa og Balkan.",
+      b2h: "Maksimal autoritet",
+      b2t: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
       name: "Ditt navn",
       email: "Din e-postadresse",
       offer: "Ditt bud (NOK / EUR / USD)",
-      message: "Melding (valgfritt)",
-      submit: "Send bud til Benny",
+      msg: "Melding (valgfritt)",
+      btn: "Send bud til Benny",
       seller: "Selger: Benny • Direkte kontakt uten mellomledd"
     },
     da: {
       badge: "Premium Fintech-domæne",
       title: "valuta.com er til salg",
-      pitch: "Et af Europas stærkeste generiske domænenavne inden for finans. Ordet \"valuta\" bruges direkte i bankverdenen og daglig tale i over et dusin lande – fra Norden og Benelux til Italien, Tjekkiet, Slovakiet, Ungarn og Balkan. Giver øjeblikkelig autoritet til fintech, betalinger og FX-platforme.",
-      h1Title: "15+ markeder, 1 ord",
-      h1Desc: "Direkte genkendelse i Norden, Benelux, Italien, Centraleuropa & Balkan.",
-      h2Title: "Maksimal autoritet",
-      h2Desc: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
+      pitch: "Et af Europas stærkeste generiske domænenavne inden for finans. Ordet valuta bruges direkte i bankverdenen og daglig tale i over et dusin lande – fra Norden og Benelux til Italien, Tjekkiet, Slovakiet, Ungarn og Balkan.",
+      b1h: "15+ markeder, 1 ord",
+      b1t: "Direkte genkendelse i Norden, Benelux, Italien, Centraleuropa & Balkan.",
+      b2h: "Maksimal autoritet",
+      b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
       name: "Dit navn",
       email: "Din e-mailadresse",
       offer: "Dit bud (DKK / EUR / USD)",
-      message: "Besked (valgfrit)",
-      submit: "Send bud til Benny",
+      msg: "Besked (valgfrit)",
+      btn: "Send bud til Benny",
       seller: "Sælger: Benny • Direkte kontakt uden mellemled"
     },
     nl: {
       badge: "Premium Fintech-domein",
       title: "valuta.com is te koop",
+      pitch: "Een van de sterkste generieke domeinnamen in de Europese financiële sector. Het woord valuta wordt direct gebruikt in meer dan een dozijn landen – van de Benelux en Scandinavië tot Italië, Tsjechië, Slowakije, Hongarije en de Balkan.",
+      b1h: "15+ markten, 1 woord",
+      b1t: "Directe herkenning in de Benelux, Scandinavië, Italië, Centraal-Europa & Balkan.",
+      b2h: "Maximale autoriteit",
+      b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
+      name: "Uw naam",
+      email: "Uw e-mailadres",
+      offer: "Uw bod (EUR / USD)",
+      msg: "Bericht (optioneel)",
+      btn: "Stuur bod naar Benny",
+      seller: "Verkoper: Benny • Direct contact zonder tussenpersonen"
+    },
+    it: {
+      badge: "Dominio Fintech Premium",
+      title: "valuta.com è in vendita",
+      pitch: "Uno dei nomi a dominio generici più forti nella finanza europea. La parola valuta è utilizzata direttamente nel settore bancario e finanziario in oltre una dozzina di Paesi: dall'Italia ai Paesi Nordici, Benelux, Repubblica Ceca, Slovacchia, Ungheria e Balcani.",
+      b1h: "15+ Mercati, 1 Parola",
+      b1t: "Riconoscimento immediato in Italia, Nord Europa, Benelux ed Europa Centrale.",
+      b2h: "Massima Autorevolezza",
+      b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
+      name: "Il tuo nome",
+      email: "La tua email",
+      offer: "La tua offerta (EUR / USD)",
 Use code with caution.
-pitch: "Een van de sterkste generieke domeinnamen in de Europese financiële sector. Het woord "valuta" wordt direct gebruikt in meer dan een dozijn landen – van de Benelux en Scandinavië tot Italië, Tsjechië, Slowakije, Hongarije en de Balkan. Ideaal voor fintech, betalingen en FX.",
-h1Title: "15+ markten, 1 woord",
-h1Desc: "Directe herkenning in de Benelux, Scandinavië, Italië, Centraal-Europa & Balkan.",
-h2Title: "Maximale autoriteit",
-h2Desc: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
-name: "Uw naam",
-email: "Uw e-mailadres",
-offer: "Uw bod (EUR / USD)",
-message: "Bericht (optioneel)",
-submit: "Stuur bod naar Benny",
-seller: "Verkoper: Benny • Direct contact zonder tussenpersonen"
-},
-it: {
-badge: "Dominio Fintech Premium",
-title: "valuta.com è in vendita",
-pitch: "Uno dei nomi a dominio generici più forti nella finanza europea. La parola "valuta" è utilizzata direttamente nel settore bancario e finanziario in oltre una dozzina di Paesi: dall'Italia ai Paesi Nordici, Benelux, Repubblica Ceca, Slovacchia, Ungheria e Balcani.",
-h1Title: "15+ Mercati, 1 Parola",
-h1Desc: "Riconoscimento immediato in Italia, Nord Europa, Benelux ed Europa Centrale.",
-h2Title: "Massima Autorevolezza",
-h2Desc: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
-name: "Il tuo nome",
-email: "La tua email",
-offer: "La tua offerta (EUR / USD)",
-message: "Messaggio (opzionale)",
-submit: "Invia offerta a Benny",
+msg: "Messaggio (opzionale)",
+btn: "Invia offerta a Benny",
 seller: "Venditore: Benny • Contatto diretto senza intermediari"
 },
 de: {
 badge: "Premium Fintech-Domain",
 title: "valuta.com steht zum Verkauf",
-pitch: "Eine der stärksten generischen Finanz-Domains Europas. "Valuta" ist im Bank- und Finanzwesen im gesamten DACH-Raum sowie in über einem Dutzend europäischer Länder (Skandinavien, Benelux, Italien, Tschechien, Ungarn) ein feststehender Begriff für Währung und Wertstellung.",
-h1Title: "15+ Märkte, 1 Wort",
-h1Desc: "Sofortige Wiedererkennung im DACH-Raum, Skandinavien, Benelux, Italien & Osteuropa.",
-h2Title: "Maximale Autorität",
-h2Desc: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
+pitch: "Eine der stärksten generischen Finanz-Domains Europas. Valuta ist im Bank- und Finanzwesen im gesamten DACH-Raum sowie in über einem Dutzend europäischer Länder (Skandinavien, Benelux, Italien, Tschechien, Ungarn) ein feststehender Begriff für Währung und Wertstellung.",
+b1h: "15+ Märkte, 1 Wort",
+b1t: "Sofortige Wiedererkennung im DACH-Raum, Skandinavien, Benelux, Italien & Osteuropa.",
+b2h: "Maximale Autorität",
+b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
 name: "Ihr Name",
 email: "Ihre E-Mail-Adresse",
 offer: "Ihr Gebot (EUR / CHF / USD)",
-message: "Nachricht (optional)",
-submit: "Gebot an Benny senden",
+msg: "Nachricht (optional)",
+btn: "Gebot an Benny senden",
 seller: "Verkäufer: Benny • Direkter Kauf ohne Maklergebühren"
 },
 cs: {
 badge: "Prémiová finanční doména",
 title: "valuta.com je na prodej",
-pitch: "Jedna z nejsilnějších generických domén v evropském finančnictví. Slovo "valuta" se přímo používá v bankovnictví a směnárenství v Česku, na Slovensku i ve více než deseti dalších evropských zemích (od Skandinávie a Beneluxu po Itálii a Maďarsko). Ideální pro fintech a devizové platformy.",
-h1Title: "15+ trhů, 1 slovo",
-h1Desc: "Okamžitá srozumitelnost v ČR, SR, střední Evropě, Skandinávii, Beneluxu i Itálii.",
-h2Title: "Maximální autorita",
-h2Desc: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
+pitch: "Jedna z nejsilnějších generických domén v evropském finančnictví. Slovo valuta se přímo používá v bankovnictví a směnárenství v Česku, na Slovensku i ve více než deseti dalších evropských zemích (od Skandinávie a Beneluxu po Itálii a Maďarsko).",
+b1h: "15+ trhů, 1 slovo",
+b1t: "Okamžitá srozumitelnost v ČR, SR, střední Evropě, Skandinávii, Beneluxu i Itálii.",
+b2h: "Maximální autorita",
+b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
 name: "Vaše jméno",
 email: "Váš e-mail",
 offer: "Vaše nabídka (CZK / EUR / USD)",
-message: "Zpráva (volitelné)",
-submit: "Odeslat nabídku Bennymu",
+msg: "Zpráva (volitelné)",
+btn: "Odeslat nabídku Bennymu",
 seller: "Prodejce: Benny • Přímý kontakt bez zprostředkovatelů"
 },
 sk: {
 badge: "Prémiová finančná doména",
 title: "valuta.com je na predaj",
-pitch: "Jedna z najsilnejších generických domén v európskom finančníctve. Slovo "valuta" sa priamo používa v bankovníctve a zmenárenstve na Slovensku, v Česku aj vo viac ako desiatich ďalších európskych krajinách. Ideálna pre fintech, platobné brány a devízové platformy.",
-h1Title: "15+ trhov, 1 slovo",
-h1Desc: "Okamžitá zrozumiteľnosť v SR, ČR, strednej Európe, Škandinávii, Beneluxe aj Taliansku.",
-h2Title: "Maximálna autorita",
-h2Desc: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
+pitch: "Jedna z najsilnejších generických domén v európskom finančníctve. Slovo valuta sa priamo používa v bankovníctve a zmenárenstve na Slovensku, v Česku aj vo viac ako desiatich ďalších európskych krajinách.",
+b1h: "15+ trhov, 1 slovo",
+b1t: "Okamžitá zrozumiteľnosť v SR, ČR, strednej Európe, Škandinávii, Beneluxe aj Taliansku.",
+b2h: "Maximálna autorita",
+b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
 name: "Vaše meno",
 email: "Váš e-mail",
 offer: "Vaša ponuka (EUR / USD)",
-message: "Správa (voliteľné)",
-submit: "Odoslať ponuku Bennymu",
+msg: "Správa (voliteľné)",
+btn: "Odoslať ponuku Bennymu",
 seller: "Predajca: Benny • Priamy kontakt bez sprostredkovateľov"
 },
 hu: {
 badge: "Prémium Fintech Domain",
 title: "valuta.com eladó",
-pitch: "Európa egyik legerősebb pénzügyi generikus domain neve. A "valuta" szó pontosan ugyanebben a formában használatos Magyarországon, valamint több mint egy tucat európai országban (Skandinávia, Benelux államok, Olaszország, Csehország, Szlovákia). Tökéletes választás fintech és devizapiaci cégeknek.",
-h1Title: "15+ piac, 1 szó",
-h1Desc: "Azonnali felismerhetőség Magyarországon, Közép-Európában, Skandináviában és Olaszországban.",
-h2Title: "Maximális tekintély",
-h2Desc: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
+pitch: "Európa egyik legerősebb pénzügyi generikus domain neve. A valuta szó pontosan ugyanebben a formában használatos Magyarországon, valamint több mint egy tucat európai országban (Skandinávia, Benelux államok, Olaszország, Csehország, Szlovákia).",
+b1h: "15+ piac, 1 szó",
+b1t: "Azonnali felismerhetőség Magyarországon, Közép-Európában, Skandináviában és Olaszországban.",
+b2h: "Maximális tekintély",
+b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
 name: "Az Ön neve",
 email: "Az Ön e-mail címe",
 offer: "Az Ön ajánlata (HUF / EUR / USD)",
-message: "Üzenet (opcionális)",
-submit: "Ajánlat küldése Bennynek",
+msg: "Üzenet (opcionális)",
+btn: "Ajánlat küldése Bennynek",
 seller: "Eladó: Benny • Közvetlen kapcsolat közvetítők nélkül"
 },
 hr: {
 badge: "Premium Fintech Domena",
 title: "valuta.com je na prodaju",
-pitch: "Jedna od najjačih generičkih domena u europskim financijama. Riječ "valuta" koristi se u bankarstvu i svakodnevnom govoru u Hrvatskoj, Sloveniji, Srbiji te u više od deset drugih europskih zemalja (od Skandinavije i Beneluxa do Italije, Češke i Mađarske).",
-h1Title: "15+ tržišta, 1 riječ",
-h1Desc: "Trenutna prepoznatljivost u regiji, srednjoj Europi, Skandinaviji, Beneluxu i Italiji.",
-h2Title: "Maksimalni autoritet",
-h2Desc: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
+pitch: "Jedna od najjačih generičkih domena u europskim financijama. Riječ valuta koristi se u bankarstvu i svakodnevnom govoru u Hrvatskoj, Sloveniji, Srbiji te u više od deset drugih europskih zemalja.",
+b1h: "15+ tržišta, 1 riječ",
+b1t: "Trenutna prepoznatljivost u regiji, srednjoj Europi, Skandinaviji, Beneluxu i Italiji.",
+b2h: "Maksimalni autoritet",
+b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
 name: "Vaše ime",
 email: "Vaš e-mail",
 offer: "Vaša ponuda (EUR / USD)",
-message: "Poruka (opcionalno)",
-submit: "Pošalji ponudu Bennyju",
+msg: "Poruka (opcionalno)",
+btn: "Pošalji ponudu Bennyju",
 seller: "Prodavač: Benny • Izravan kontakt bez posrednika"
 }
 };
-const selectEl = document.getElementById('lang-select');
-function applyLanguage(lang) {
-const chosen = translations[lang] ? lang : 'en';
-const t = translations[chosen];
-document.documentElement.lang = chosen;
-selectEl.value = chosen;
-document.getElementById('badge').textContent = t.badge;
-document.getElementById('title').textContent = t.title;
-document.getElementById('pitch').textContent = t.pitch;
-document.getElementById('h1-title').textContent = t.h1Title;
-document.getElementById('h1-desc').textContent = t.h1Desc;
-document.getElementById('h2-title').textContent = t.h2Title;
-document.getElementById('h2-desc').textContent = t.h2Desc;
-document.getElementById('name').placeholder = t.name;
-document.getElementById('email').placeholder = t.email;
-document.getElementById('offer').placeholder = t.offer;
-document.getElementById('message').placeholder = t.message;
-document.getElementById('submit-btn').textContent = t.submit;
-document.getElementById('seller').textContent = t.seller;
+function updatePageLanguage(code) {
+var lang = langData[code] ? code : "en";
+var d = langData[lang];
+document.documentElement.lang = lang;
+document.getElementById("lang-menu").value = lang;
+document.getElementById("t-badge").innerText = d.badge;
+document.getElementById("t-title").innerText = d.title;
+document.getElementById("t-pitch").innerText = d.pitch;
+document.getElementById("t-b1-head").innerText = d.b1h;
+document.getElementById("t-b1-text").innerText = d.b1t;
+document.getElementById("t-b2-head").innerText = d.b2h;
+document.getElementById("t-b2-text").innerText = d.b2t;
+document.getElementById("f-name").placeholder = d.name;
+document.getElementById("f-email").placeholder = d.email;
+document.getElementById("f-offer").placeholder = d.offer;
+document.getElementById("f-msg").placeholder = d.msg;
+document.getElementById("t-btn").innerText = d.btn;
+document.getElementById("t-seller").innerText = d.seller;
 }
-selectEl.addEventListener('change', function() {
-applyLanguage(this.value);
-});
-const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0, 2);
-const langMap = { nb: 'no', nn: 'no', sl: 'hr', sr: 'hr', bs: 'hr' };
-const initialLang = langMap[browserLang] || (translations[browserLang] ? browserLang : 'en');
-applyLanguage(initialLang);
+var menu = document.getElementById("lang-menu");
+menu.onchange = function() {
+updatePageLanguage(this.value);
+};
+var navLang = (navigator.language || navigator.userLanguage || "en").toLowerCase().substring(0, 2);
+var map = { nb: "no", nn: "no", sl: "hr", sr: "hr", bs: "hr" };
+var startLang = map[navLang] || (langData[navLang] ? navLang : "en");
+updatePageLanguage(startLang);

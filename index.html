@@ -30,6 +30,7 @@
     .ideas ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
     .ideas li { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px 12px 10px 34px; font-size: 0.9rem; position: relative; }
     .ideas li::before { content: "✓"; position: absolute; left: 12px; color: #38bdf8; font-weight: 700; }
+    form select { width: 100%; padding: 12px 14px; font-size: 1rem; }
     .note { font-size: 0.85rem; color: #94a3b8; }
     .note.top { color: #cbd5e1; }
     .status { display: none; padding: 18px; border-radius: 10px; font-size: 1.05rem; text-align: center; }
@@ -90,7 +91,15 @@
     <input type="text" id="f-company" name="company" maxlength="100" required>
     <input type="email" id="f-email" name="email" maxlength="150" required>
     <input type="email" id="f-email2" maxlength="150" autocomplete="off" required>
-    <input type="text" id="f-offer" name="offer" maxlength="60" required>
+    <select id="f-range" name="offer_range" required>
+      <option value="" disabled selected></option>
+      <option value="EUR 25,000 – 50,000">EUR 25,000 – 50,000</option>
+      <option value="EUR 50,000 – 100,000">EUR 50,000 – 100,000</option>
+      <option value="EUR 100,000 – 150,000">EUR 100,000 – 150,000</option>
+      <option value="EUR 150,000 – 250,000">EUR 150,000 – 250,000</option>
+      <option value="custom"></option>
+    </select>
+    <input type="text" id="f-custom" name="custom_offer" maxlength="60" style="display:none" disabled>
     <textarea id="f-msg" name="message" rows="3" maxlength="2000" required></textarea>
     <button type="submit" id="t-btn"></button>
     <p class="note" id="t-noauto"></p>
@@ -113,6 +122,9 @@ var langData = {
     b2t: "Short, exact-match .com domain built for trust in fintech, banking, and FX.",
     name: "Your name",
     company: "Company",
+    offerSelect: "Select your offer range (EUR)",
+    offerCustom: "Other / free offer",
+    offerCustomInput: "Your free offer (e.g. 300,000 EUR / USD)",
     sending: "Sending…",
     email2: "Confirm your email",
     mismatch: "The email addresses do not match.",
@@ -138,6 +150,9 @@ var langData = {
     b2t: "Kort, exakt .com-domän som skapar omedelbart förtroende inom fintech och finans.",
     name: "Ditt namn",
     company: "Företag",
+    offerSelect: "Välj budintervall (EUR)",
+    offerCustom: "Annat / fritt bud",
+    offerCustomInput: "Ditt fria bud (t.ex. 300 000 EUR / USD / SEK)",
     sending: "Skickar…",
     email2: "Upprepa din e-postadress",
     mismatch: "E-postadresserna matchar inte.",
@@ -163,6 +178,9 @@ var langData = {
     b2t: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
     name: "Ditt navn",
     company: "Firma",
+    offerSelect: "Velg budintervall (EUR)",
+    offerCustom: "Annet / fritt bud",
+    offerCustomInput: "Ditt frie bud (f.eks. 300 000 EUR / USD / NOK)",
     sending: "Sender…",
     email2: "Gjenta e-postadressen din",
     mismatch: "E-postadressene stemmer ikke overens.",
@@ -188,6 +206,9 @@ var langData = {
     b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
     name: "Dit navn",
     company: "Virksomhed",
+    offerSelect: "Vælg budinterval (EUR)",
+    offerCustom: "Andet / frit bud",
+    offerCustomInput: "Dit frie bud (f.eks. 300.000 EUR / USD / DKK)",
     sending: "Sender…",
     email2: "Gentag din e-mailadresse",
     mismatch: "E-mailadresserne stemmer ikke overens.",
@@ -213,6 +234,9 @@ var langData = {
     b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
     name: "Uw naam",
     company: "Bedrijf",
+    offerSelect: "Kies uw biedingsbereik (EUR)",
+    offerCustom: "Anders / vrij bod",
+    offerCustomInput: "Uw vrije bod (bijv. 300.000 EUR / USD)",
     sending: "Verzenden…",
     email2: "Herhaal uw e-mailadres",
     mismatch: "De e-mailadressen komen niet overeen.",
@@ -238,6 +262,9 @@ var langData = {
     b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
     name: "Il tuo nome",
     company: "Azienda",
+    offerSelect: "Seleziona la fascia di offerta (EUR)",
+    offerCustom: "Altro / offerta libera",
+    offerCustomInput: "La tua offerta libera (es. 300.000 EUR / USD)",
     sending: "Invio in corso…",
     email2: "Ripeti la tua email",
     mismatch: "Gli indirizzi email non corrispondono.",
@@ -263,6 +290,9 @@ var langData = {
     b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
     name: "Ihr Name",
     company: "Unternehmen",
+    offerSelect: "Gebotsbereich wählen (EUR)",
+    offerCustom: "Anderes / freies Gebot",
+    offerCustomInput: "Ihr freies Gebot (z. B. 300.000 EUR / USD / CHF)",
     sending: "Wird gesendet…",
     email2: "E-Mail-Adresse wiederholen",
     mismatch: "Die E-Mail-Adressen stimmen nicht überein.",
@@ -288,6 +318,9 @@ var langData = {
     b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
     name: "Vaše jméno",
     company: "Společnost",
+    offerSelect: "Vyberte rozmezí nabídky (EUR)",
+    offerCustom: "Jiná / volná nabídka",
+    offerCustomInput: "Vaše volná nabídka (např. 300 000 EUR / USD / CZK)",
     sending: "Odesílání…",
     email2: "Zopakujte svůj e-mail",
     mismatch: "E-mailové adresy se neshodují.",
@@ -313,6 +346,9 @@ var langData = {
     b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
     name: "Vaše meno",
     company: "Spoločnosť",
+    offerSelect: "Vyberte rozsah ponuky (EUR)",
+    offerCustom: "Iná / voľná ponuka",
+    offerCustomInput: "Vaša voľná ponuka (napr. 300 000 EUR / USD)",
     sending: "Odosielanie…",
     email2: "Zopakujte svoj e-mail",
     mismatch: "E-mailové adresy sa nezhodujú.",
@@ -338,6 +374,9 @@ var langData = {
     b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
     name: "Az Ön neve",
     company: "Cég",
+    offerSelect: "Válassza ki az ajánlati sávot (EUR)",
+    offerCustom: "Egyéb / szabad ajánlat",
+    offerCustomInput: "Az Ön szabad ajánlata (pl. 300 000 EUR / USD / HUF)",
     sending: "Küldés…",
     email2: "Ismételje meg az e-mail címét",
     mismatch: "Az e-mail címek nem egyeznek.",
@@ -363,6 +402,9 @@ var langData = {
     b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
     name: "Vaše ime",
     company: "Tvrtka",
+    offerSelect: "Odaberite raspon ponude (EUR)",
+    offerCustom: "Drugo / slobodna ponuda",
+    offerCustomInput: "Vaša slobodna ponuda (npr. 300.000 EUR / USD)",
     sending: "Slanje…",
     email2: "Ponovite svoj e-mail",
     mismatch: "E-mail adrese se ne podudaraju.",
@@ -388,6 +430,14 @@ function checkEmails() {
 }
 document.getElementById("f-email").addEventListener("input", checkEmails);
 document.getElementById("f-email2").addEventListener("input", checkEmails);
+document.getElementById("f-range").addEventListener("change", function () {
+  var c = document.getElementById("f-custom");
+  var on = this.value === "custom";
+  c.style.display = on ? "block" : "none";
+  c.disabled = !on;
+  c.required = on;
+  if (on) { c.focus(); } else { c.value = ""; }
+});
 var isSending = false;
 var statusKey = null;
 function renderStatus() {
@@ -412,7 +462,10 @@ function updatePageLanguage(code) {
   document.getElementById("f-name").placeholder = d.name;
   document.getElementById("f-company").placeholder = d.company;
   document.getElementById("f-email").placeholder = d.email;
-  document.getElementById("f-offer").placeholder = d.offer;
+  var rng = document.getElementById("f-range");
+  rng.options[0].textContent = d.offerSelect;
+  rng.options[rng.options.length - 1].textContent = d.offerCustom;
+  document.getElementById("f-custom").placeholder = d.offerCustomInput;
   document.getElementById("f-msg").placeholder = d.msg;
   document.getElementById("t-btn").textContent = isSending ? d.sending : d.btn;
   document.getElementById("t-seller").textContent = d.seller;

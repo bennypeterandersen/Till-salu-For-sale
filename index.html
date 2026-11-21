@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,7 +155,7 @@
     <div class="badge" id="badge">Premium Fintech Domain</div>
     <div class="lang-select-wrapper">
       <label for="lang-select" style="font-size: 0.85rem; color: var(--muted);">🌐</label>
-      <select id="lang-select" onchange="setLang(this.value)">
+      <select id="lang-select">
         <option value="en">English (International)</option>
         <option value="sv">Svenska (SE / FI)</option>
         <option value="no">Norsk (NO)</option>
@@ -198,7 +199,7 @@
 </div>
 
 <script>
-  const data = {
+  const translations = {
     sv: {
       badge: "Premium Fintech-domän",
       title: "valuta.com är till salu",
@@ -366,11 +367,12 @@ submit: "Pošalji ponudu Bennyju",
 seller: "Prodavač: Benny • Izravan kontakt bez posrednika"
 }
 };
-function setLang(lang) {
-if (!data[lang]) lang = 'en';
-const t = data[lang];
-document.documentElement.lang = lang;
-document.getElementById('lang-select').value = lang;
+const selectEl = document.getElementById('lang-select');
+function applyLanguage(lang) {
+const chosen = translations[lang] ? lang : 'en';
+const t = translations[chosen];
+document.documentElement.lang = chosen;
+selectEl.value = chosen;
 document.getElementById('badge').textContent = t.badge;
 document.getElementById('title').textContent = t.title;
 document.getElementById('pitch').textContent = t.pitch;
@@ -385,15 +387,10 @@ document.getElementById('message').placeholder = t.message;
 document.getElementById('submit-btn').textContent = t.submit;
 document.getElementById('seller').textContent = t.seller;
 }
-window.addEventListener('DOMContentLoaded', () => {
-const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0, 2);
-const langMap = {
-nb: 'no',
-nn: 'no',
-sl: 'hr',
-sr: 'hr',
-bs: 'hr'
-};
-const detected = langMap[userLang] || (data[userLang] ? userLang : 'en');
-setLang(detected);
+selectEl.addEventListener('change', function() {
+applyLanguage(this.value);
 });
+const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0, 2);
+const langMap = { nb: 'no', nn: 'no', sl: 'hr', sr: 'hr', bs: 'hr' };
+const initialLang = langMap[browserLang] || (translations[browserLang] ? browserLang : 'en');
+applyLanguage(initialLang);

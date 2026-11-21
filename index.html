@@ -22,7 +22,6 @@
     input, textarea { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: #f8fafc; font-size: 1rem; font-family: inherit; }
     button { background: #38bdf8; color: #0f172a; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 4px; }
     button:hover { background: #0284c7; color: #ffffff; }
-    button:disabled { opacity: 0.6; cursor: not-allowed; }
     .status { display: none; padding: 18px; border-radius: 10px; font-size: 1.05rem; text-align: center; }
     .status.ok { display: block; background: rgba(34,197,94,0.12); border: 1px solid #22c55e; color: #bbf7d0; }
     .status.err { display: block; background: rgba(239,68,68,0.12); border: 1px solid #ef4444; color: #fecaca; margin-top: 12px; }
@@ -38,18 +37,18 @@
     <div class="lang-wrap">
       <label for="lang-menu">Select language</label>
       <select id="lang-menu">
-        <option value="en">English (International)</option>
-        <option value="sv">Svenska (SE / FI)</option>
-        <option value="no">Norsk (NO)</option>
-        <option value="da">Dansk (DK)</option>
-        <option value="nl">Nederlands (NL / BE)</option>
-        <option value="it">Italiano (IT / CH)</option>
-        <option value="de">Deutsch (DE / AT / CH)</option>
-        <option value="cs">Čeština (CZ)</option>
-        <option value="sk">Slovenčina (SK)</option>
-        <option value="hu">Magyar (HU)</option>
-        <option value="hr">Hrvatski / Slovenščina (HR / SI)</option>
-      </select>
+      <option value="en">English (International)</option>
+      <option value="sv">Svenska (SE / FI)</option>
+      <option value="no">Norsk (NO)</option>
+      <option value="da">Dansk (DK)</option>
+      <option value="nl">Nederlands (NL / BE)</option>
+      <option value="it">Italiano (IT / CH)</option>
+      <option value="de">Deutsch (DE / AT / CH)</option>
+      <option value="cs">Čeština (CZ)</option>
+      <option value="sk">Slovenčina (SK)</option>
+      <option value="hu">Magyar (HU)</option>
+      <option value="hr">Hrvatski / Slovenščina (HR / SI)</option>
+    </select>
     </div>
   </div>
 
@@ -70,7 +69,6 @@
   <form id="offer-form" action="https://formsubmit.co/bp_andersen@hotmail.com" method="POST">
     <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
     <input type="text" id="f-name" name="name" maxlength="100" required>
     <input type="text" id="f-company" name="company" maxlength="100" required>
@@ -150,7 +148,7 @@ var langData = {
     b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
     name: "Dit navn",
     company: "Virksomhed",
-    thanks: "Tak! Dit bud er sendt. Mr Andersen vender tilbage snarest.",
+    thanks: "Tak! Dit bud er sendt. Mr Andersen vender snart tilbage til dig.",
     error: "Noget gik galt. Prøv igen.",
     email: "Din e-mailadresse",
     offer: "Dit bud (DKK / EUR / USD)",
@@ -168,8 +166,8 @@ var langData = {
     b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
     name: "Uw naam",
     company: "Bedrijf",
-    thanks: "Bedankt! Uw bod is verzonden. Mr Andersen neemt spoedig contact met u op.",
-    error: "Er is iets misgegaan. Probeer het opnieuw.",
+    thanks: "Bedankt! Uw bod is verzonden. Mr Andersen neemt binnenkort contact met u op.",
+    error: "Er ging iets mis. Probeer het opnieuw.",
     email: "Uw e-mailadres",
     offer: "Uw bod (EUR / USD)",
     msg: "Bericht",
@@ -179,180 +177,186 @@ var langData = {
   it: {
     badge: "Dominio Fintech Premium",
     title: "valuta.com è in vendita",
-Use code with caution.
-pitch: "Uno dei nomi a dominio generici più forti nella finanza europea. La parola valuta è utilizzata direttamente nel settore bancario e finanziario in oltre una dozzina di Paesi: dall'Italia ai Paesi Nordici, Benelux, Repubblica Ceca, Slovacchia, Ungheria e Balcani.",
-b1h: "15+ Mercati, 1 Parola",
-b1t: "Riconoscimento immediato in Italia, Nord Europa, Benelux ed Europa Centrale.",
-b2h: "Massima Autorevolezza",
-b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
-name: "Il tuo nome",
-company: "Azienda",
-thanks: "Grazie! La tua offerta è stata inviata. Mr Andersen ti risponderà al più presto.",
-error: "Qualcosa è andato storto. Riprova.",
-email: "La tua email",
-offer: "La tua offerta (EUR / USD)",
-msg: "Messaggio",
-btn: "Invia offerta a Mr Andersen",
-seller: "Venditore: Mr Andersen • Contatto diretto senza intermediari"
-},
-de: {
-badge: "Premium Fintech-Domain",
-title: "valuta.com steht zum Verkauf",
-pitch: "Eine der stärksten generischen Finanz-Domains Europas. Valuta ist im Bank- und Finanzwesen im gesamten DACH-Raum sowie in über einem Dutzend europäischer Länder (Skandinavien, Benelux, Italien, Tschechien, Ungarn) ein feststehender Begriff für Währung und Wertstellung.",
-b1h: "15+ Märkte, 1 Wort",
-b1t: "Sofortige Wiedererkennung im DACH-Raum, Skandinavien, Benelux, Italien & Osteuropa.",
-b2h: "Maximale Autorität",
-b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
-name: "Ihr Name",
-company: "Unternehmen",
-thanks: "Vielen Dank! Ihr Gebot wurde gesendet. Mr Andersen meldet sich in Kürze bei Ihnen.",
-error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-email: "Ihre E-Mail-Adresse",
-offer: "Ihr Gebot (EUR / CHF / USD)",
-msg: "Nachricht",
-btn: "Gebot an Mr Andersen senden",
-seller: "Verkäufer: Mr Andersen • Direkter Kauf ohne Maklergebühren"
-},
-cs: {
-badge: "Prémiová finanční doména",
-title: "valuta.com je na prodej",
-pitch: "Jedna z nejsilnějších generických domén v evropském finančnictví. Slovo valuta se přímo používá v bankovnictví a směnárenství v Česku, na Slovensku i ve více než deseti dalších evropských zemích (od Skandinávie a Beneluxu po Itálii a Maďarsko).",
-b1h: "15+ trhů, 1 slovo",
-b1t: "Okamžitá srozumitelnost v ČR, SR, střední Evropě, Skandinávii, Beneluxu i Itálii.",
-b2h: "Maximální autorita",
-b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
-name: "Vaše jméno",
-company: "Společnost",
-thanks: "Děkujeme! Vaše nabídka byla odeslána. Mr Andersen se vám brzy ozve.",
-error: "Něco se pokazilo. Zkuste to prosím znovu.",
-email: "Váš e-mail",
-offer: "Vaše nabídka (CZK / EUR / USD)",
-msg: "Zpráva",
-btn: "Odeslat nabídku Mr Andersenovi",
-seller: "Prodejce: Mr Andersen • Přímý kontakt bez zprostředkovatelů"
-},
-sk: {
-badge: "Prémiová finančná doména",
-title: "valuta.com je na predaj",
-pitch: "Jedna z najsilnejších generických domén v európskom finančníctve. Slovo valuta sa priamo používa v bankovníctve a zmenárenstve na Slovensku, v Česku aj vo viac ako desiatich ďalších európskych krajinách.",
-b1h: "15+ trhov, 1 slovo",
-b1t: "Okamžitá zrozumiteľnosť v SR, ČR, strednej Európe, Škandinávii, Beneluxe aj Taliansku.",
-b2h: "Maximálna autorita",
-b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
-name: "Vaše meno",
-company: "Spoločnosť",
-thanks: "Ďakujeme! Vaša ponuka bola odoslaná. Mr Andersen sa vám čoskoro ozve.",
-error: "Niečo sa pokazilo. Skúste to prosím znova.",
-email: "Váš e-mail",
-offer: "Vaša ponuka (EUR / USD)",
-msg: "Správa",
-btn: "Odoslať ponuku Mr Andersenovi",
-seller: "Predajca: Mr Andersen • Priamy kontakt bez sprostredkovateľov"
-},
-hu: {
-badge: "Prémium Fintech Domain",
-title: "valuta.com eladó",
-pitch: "Európa egyik legerősebb pénzügyi generikus domain neve. A valuta szó pontosan ugyanebben a formában használatos Magyarországon, valamint több mint egy tucat európai országban (Skandinávia, Benelux államok, Olaszország, Csehország, Szlovákia).",
-b1h: "15+ piac, 1 szó",
-b1t: "Azonnali felismerhetőség Magyarországon, Közép-Európában, Skandináviában és Olaszországban.",
-b2h: "Maximális tekintély",
-b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
-name: "Az Ön neve",
-company: "Cégnév",
-thanks: "Köszönjük! Ajánlatát elküldtük. Mr Andersen hamarosan felveszi Önnel a kapcsolatot.",
-error: "Hiba történt. Kérjük, próbálja újra.",
-email: "Az Ön e-mail címe",
-offer: "Az Ön ajánlata (HUF / EUR / USD)",
-msg: "Üzenet",
-btn: "Ajánlat küldése Mr Andersennek",
-seller: "Eladó: Mr Andersen • Közvetlen kapcsolat közvetítők nélkül"
-},
-hr: {
-badge: "Premium Fintech Domena",
-title: "valuta.com je na prodaju",
-pitch: "Jedna od najjačih generičkih domena u europskim financijama. Riječ valuta koristi se u bankarstvu i svakodnevnom govoru u Hrvatskoj, Sloveniji, Srbiji te u više od deset drugih europskih zemalja.",
-b1h: "15+ tržišta, 1 riječ",
-b1t: "Trenutna prepoznatljivost u regiji, srednjoj Europi, Skandinaviji, Beneluxu i Italiji.",
-b2h: "Maksimalni autoritet",
-b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
-name: "Vaše ime",
-company: "Tvrtka",
-thanks: "Hvala! Vaša ponuda je poslana. Mr Andersen će vam se uskoro javiti.",
-error: "Nešto je pošlo po zlu. Pokušajte ponovno.",
-email: "Vaš e-mail",
-offer: "Vaša ponuda (EUR / USD)",
-msg: "Poruka",
-btn: "Pošalji ponudu Mr Andersenu",
-seller: "Prodavač: Mr Andersen • Izravan kontakt bez posrednika"
-}
+    pitch: "Uno dei nomi a dominio generici più forti nella finanza europea. La parola valuta è utilizzata direttamente nel settore bancario e finanziario in oltre una dozzina di Paesi: dall'Italia ai Paesi Nordici, Benelux, Repubblica Ceca, Slovacchia, Ungheria e Balcani.",
+    b1h: "15+ Mercati, 1 Parola",
+    b1t: "Riconoscimento immediato in Italia, Nord Europa, Benelux ed Europa Centrale.",
+    b2h: "Massima Autorevolezza",
+    b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
+    name: "Il tuo nome",
+    company: "Azienda",
+    thanks: "Grazie! La tua offerta è stata inviata. Mr Andersen ti risponderà a breve.",
+    error: "Qualcosa è andato storto. Riprova.",
+    email: "La tua email",
+    offer: "La tua offerta (EUR / USD)",
+    msg: "Messaggio",
+    btn: "Invia offerta a Mr Andersen",
+    seller: "Venditore: Mr Andersen • Contatto diretto senza intermediari"
+  },
+  de: {
+    badge: "Premium Fintech-Domain",
+    title: "valuta.com steht zum Verkauf",
+    pitch: "Eine der stärksten generischen Finanz-Domains Europas. Valuta ist im Bank- und Finanzwesen im gesamten DACH-Raum sowie in über einem Dutzend europäischer Länder (Skandinavien, Benelux, Italien, Tschechien, Ungarn) ein feststehender Begriff für Währung und Wertstellung.",
+    b1h: "15+ Märkte, 1 Wort",
+    b1t: "Sofortige Wiedererkennung im DACH-Raum, Skandinavien, Benelux, Italien & Osteuropa.",
+    b2h: "Maximale Autorität",
+    b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
+    name: "Ihr Name",
+    company: "Unternehmen",
+    thanks: "Vielen Dank! Ihr Gebot wurde gesendet. Mr Andersen meldet sich in Kürze bei Ihnen.",
+    error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    email: "Ihre E-Mail-Adresse",
+    offer: "Ihr Gebot (EUR / CHF / USD)",
+    msg: "Nachricht",
+    btn: "Gebot an Mr Andersen senden",
+    seller: "Verkäufer: Mr Andersen • Direkter Kauf ohne Maklergebühren"
+  },
+  cs: {
+    badge: "Prémiová finanční doména",
+    title: "valuta.com je na prodej",
+    pitch: "Jedna z nejsilnějších generických domén v evropském finančnictví. Slovo valuta se přímo používá v bankovnictví a směnárenství v Česku, na Slovensku i ve více než deseti dalších evropských zemích (od Skandinávie a Beneluxu po Itálii a Maďarsko).",
+    b1h: "15+ trhů, 1 slovo",
+    b1t: "Okamžitá srozumitelnost v ČR, SR, střední Evropě, Skandinávii, Beneluxu i Itálii.",
+    b2h: "Maximální autorita",
+    b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
+    name: "Vaše jméno",
+    company: "Společnost",
+    thanks: "Děkujeme! Vaše nabídka byla odeslána. Mr Andersen se vám brzy ozve.",
+    error: "Něco se pokazilo. Zkuste to prosím znovu.",
+    email: "Váš e-mail",
+    offer: "Vaše nabídka (CZK / EUR / USD)",
+    msg: "Zpráva",
+    btn: "Odeslat nabídku panu Andersenovi",
+    seller: "Prodejce: Mr Andersen • Přímý kontakt bez zprostředkovatelů"
+  },
+  sk: {
+    badge: "Prémiová finančná doména",
+    title: "valuta.com je na predaj",
+    pitch: "Jedna z najsilnejších generických domén v európskom finančníctve. Slovo valuta sa priamo používa v bankovníctve a zmenárenstve na Slovensku, v Česku aj vo viac ako desiatich ďalších európskych krajinách.",
+    b1h: "15+ trhov, 1 slovo",
+    b1t: "Okamžitá zrozumiteľnosť v SR, ČR, strednej Európe, Škandinávii, Beneluxe aj Taliansku.",
+    b2h: "Maximálna autorita",
+    b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
+    name: "Vaše meno",
+    company: "Spoločnosť",
+    thanks: "Ďakujeme! Vaša ponuka bola odoslaná. Mr Andersen sa vám čoskoro ozve.",
+    error: "Niečo sa pokazilo. Skúste to prosím znova.",
+    email: "Váš e-mail",
+    offer: "Vaša ponuka (EUR / USD)",
+    msg: "Správa",
+    btn: "Odoslať ponuku pánovi Andersenovi",
+    seller: "Predajca: Mr Andersen • Priamy kontakt bez sprostredkovateľov"
+  },
+  hu: {
+    badge: "Prémium Fintech Domain",
+    title: "valuta.com eladó",
+    pitch: "Európa egyik legerősebb pénzügyi generikus domain neve. A valuta szó pontosan ugyanebben a formában használatos Magyarországon, valamint több mint egy tucat európai országban (Skandinávia, Benelux államok, Olaszország, Csehország, Szlovákia).",
+    b1h: "15+ piac, 1 szó",
+    b1t: "Azonnali felismerhetőség Magyarországon, Közép-Európában, Skandináviában és Olaszországban.",
+    b2h: "Maximális tekintély",
+    b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
+    name: "Az Ön neve",
+    company: "Cég",
+    thanks: "Köszönjük! Ajánlatát elküldtük. Mr Andersen hamarosan felveszi Önnel a kapcsolatot.",
+    error: "Hiba történt. Kérjük, próbálja újra.",
+    email: "Az Ön e-mail címe",
+    offer: "Az Ön ajánlata (HUF / EUR / USD)",
+    msg: "Üzenet",
+    btn: "Ajánlat küldése Mr Andersennek",
+    seller: "Eladó: Mr Andersen • Közvetlen kapcsolat közvetítők nélkül"
+  },
+  hr: {
+    badge: "Premium Fintech Domena",
+    title: "valuta.com je na prodaju",
+    pitch: "Jedna od najjačih generičkih domena u europskim financijama. Riječ valuta koristi se u bankarstvu i svakodnevnom govoru u Hrvatskoj, Sloveniji, Srbiji te u više od deset drugih europskih zemalja.",
+    b1h: "15+ tržišta, 1 riječ",
+    b1t: "Trenutna prepoznatljivost u regiji, srednjoj Europi, Skandinaviji, Beneluxu i Italiji.",
+    b2h: "Maksimalni autoritet",
+    b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
+    name: "Vaše ime",
+    company: "Tvrtka",
+    thanks: "Hvala! Vaša ponuda je poslana. Mr Andersen će vam se uskoro javiti.",
+    error: "Nešto je pošlo po zlu. Pokušajte ponovno.",
+    email: "Vaš e-mail",
+    offer: "Vaša ponuda (EUR / USD)",
+    msg: "Poruka",
+    btn: "Pošalji ponudu gospodinu Andersenu",
+    seller: "Prodavač: Mr Andersen • Izravan kontakt bez posrednika"
+  }
 };
+
+var statusKey = null;
+function renderStatus() {
+  var el = document.getElementById("status");
+  if (!statusKey) { el.className = "status"; el.textContent = ""; return; }
+  el.className = "status " + (statusKey === "thanks" ? "ok" : "err");
+  el.textContent = langData[currentLang][statusKey];
+}
 var currentLang = "en";
 function updatePageLanguage(code) {
-currentLang = langData[code] ? code : "en";
-var d = langData[currentLang];
-document.documentElement.lang = currentLang;
-document.getElementById("lang-menu").value = currentLang;
-document.getElementById("t-badge").innerText = d.badge;
-document.getElementById("t-title").innerText = d.title;
-document.getElementById("t-pitch").innerText = d.pitch;
-document.getElementById("t-b1-head").innerText = d.b1h;
-document.getElementById("t-b1-text").innerText = d.b1t;
-document.getElementById("t-b2-head").innerText = d.b2h;
-document.getElementById("t-b2-text").innerText = d.b2t;
-document.getElementById("f-name").placeholder = d.name;
-document.getElementById("f-company").placeholder = d.company;
-document.getElementById("f-email").placeholder = d.email;
-document.getElementById("f-offer").placeholder = d.offer;
-document.getElementById("f-msg").placeholder = d.msg;
-document.getElementById("t-btn").innerText = d.btn;
-document.getElementById("t-seller").innerText = d.seller;
+  var lang = langData[code] ? code : "en";
+  var d = langData[lang];
+  document.documentElement.lang = lang;
+  document.getElementById("lang-menu").value = lang;
+  document.getElementById("t-badge").textContent = d.badge;
+  document.getElementById("t-title").textContent = d.title;
+  document.getElementById("t-pitch").textContent = d.pitch;
+  document.getElementById("t-b1-head").textContent = d.b1h;
+  document.getElementById("t-b1-text").textContent = d.b1t;
+  document.getElementById("t-b2-head").textContent = d.b2h;
+  document.getElementById("t-b2-text").textContent = d.b2t;
+  document.getElementById("f-name").placeholder = d.name;
+  document.getElementById("f-company").placeholder = d.company;
+  document.getElementById("f-email").placeholder = d.email;
+  document.getElementById("f-offer").placeholder = d.offer;
+  document.getElementById("f-msg").placeholder = d.msg;
+  document.getElementById("t-btn").textContent = d.btn;
+  document.getElementById("t-seller").textContent = d.seller;
+  document.title = "valuta.com – " + d.badge;
+  currentLang = lang;
+  renderStatus();
 }
-document.getElementById("lang-menu").addEventListener("change", function() {
-updatePageLanguage(this.value);
+
+var menu = document.getElementById("lang-menu");
+menu.addEventListener("change", function () {
+  updatePageLanguage(this.value);
 });
-document.getElementById("offer-form").addEventListener("submit", function(e) {
-e.preventDefault();
-var form = this;
-var btn = document.getElementById("t-btn");
-var statusEl = document.getElementById("status");
-var d = langData[currentLang];
-btn.disabled = true;
-statusEl.className = "status";
-statusEl.style.display = "none";
-fetch("formsubmit.co", {
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-"Accept": "application/json"
-},
-body: JSON.stringify({
-_subject: "Nytt bud på valuta.com",
-_template: "table",
-Namn: document.getElementById("f-name").value,
-Företag: document.getElementById("f-company").value,
-Epost: document.getElementById("f-email").value,
-Bud: document.getElementById("f-offer").value,
-Meddelande: document.getElementById("f-msg").value
-})
-})
-.then(function(response) {
-if (!response.ok) throw new Error("Network error");
-return response.json();
-})
-.then(function() {
-form.style.display = "none";
-statusEl.innerText = d.thanks;
-statusEl.className = "status ok";
-statusEl.style.display = "block";
-})
-.catch(function() {
-btn.disabled = false;
-statusEl.innerText = d.error;
-statusEl.className = "status err";
-statusEl.style.display = "block";
+
+updatePageLanguage("en");
+
+// Skicka utan att lämna sidan + anti-spam
+var loadedAt = Date.now();
+var form = document.getElementById("offer-form");
+var sendBtn = document.getElementById("t-btn");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (Date.now() - loadedAt < 4000 || sendBtn.disabled) { return; }
+  if (form.elements["_honey"].value) { return; }
+  sendBtn.disabled = true;
+  statusKey = null; renderStatus();
+  var data = {};
+  new FormData(form).forEach(function (v, k) { data[k] = v; });
+  fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(function (r) { return r.json(); })
+  .then(function (res) {
+    if (res.success === true || res.success === "true") {
+      form.style.display = "none";
+      statusKey = "thanks";
+    } else {
+      statusKey = "error";
+      sendBtn.disabled = false;
+    }
+    renderStatus();
+  })
+  .catch(function () {
+    statusKey = "error";
+    sendBtn.disabled = false;
+    renderStatus();
+  });
 });
-});
-var navLang = (navigator.language || navigator.userLanguage || "en").toLowerCase().substring(0, 2);
-var map = { nb: "no", nn: "no", sl: "hr", sr: "hr", bs: "hr" };
-var startLang = map[navLang] || (langData[navLang] ? navLang : "en");
-updatePageLanguage(startLang);
+</script>
+</body>
+</html>

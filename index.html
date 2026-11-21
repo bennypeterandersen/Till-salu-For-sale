@@ -63,15 +63,15 @@
     </div>
   </div>
 
-  <!-- BYT UT DIN_EPOST@EXEMPEL.SE mot Mr Andersens riktiga e-postadress -->
-  <form action="https://formsubmit.co/DIN_EPOST@EXEMPEL.SE" method="POST">
+  <form id="offer-form" action="https://formsubmit.co/bp_andersen@hotmail.com" method="POST">
     <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" id="f-name" name="name" required>
-    <input type="text" id="f-company" name="company" required>
-    <input type="email" id="f-email" name="email" required>
-    <input type="text" id="f-offer" name="offer" required>
-    <textarea id="f-msg" name="message" rows="3" required></textarea>
+    <input type="hidden" name="_captcha" value="true">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="text" id="f-name" name="name" maxlength="100" required>
+    <input type="text" id="f-company" name="company" maxlength="100" required>
+    <input type="email" id="f-email" name="email" maxlength="150" required>
+    <input type="text" id="f-offer" name="offer" maxlength="60" required>
+    <textarea id="f-msg" name="message" rows="3" maxlength="2000" required></textarea>
     <button type="submit" id="t-btn"></button>
   </form>
 
@@ -286,6 +286,15 @@ menu.addEventListener("change", function () {
 });
 
 updatePageLanguage("en");
+
+// Anti-spam: blockera bottar som skickar direkt, och dubbelklick
+var loadedAt = Date.now();
+document.getElementById("offer-form").addEventListener("submit", function (e) {
+  if (Date.now() - loadedAt < 4000) { e.preventDefault(); return; }
+  var b = document.getElementById("t-btn");
+  if (b.disabled) { e.preventDefault(); return; }
+  setTimeout(function () { b.disabled = true; }, 0);
+});
 </script>
 </body>
 </html>

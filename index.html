@@ -77,6 +77,7 @@
     <textarea id="f-msg" name="message" rows="3" maxlength="2000" required></textarea>
     <button type="submit" id="t-btn"></button>
   </form>
+  <iframe id="hidden-frame" name="hidden-frame" title="" style="display:none" tabindex="-1"></iframe>
   <div id="status" class="status" role="status" aria-live="polite"></div>
 
   <div class="footer" id="t-seller"></div>
@@ -327,6 +328,32 @@ updatePageLanguage("en");
 var loadedAt = Date.now();
 var form = document.getElementById("offer-form");
 var sendBtn = document.getElementById("t-btn");
+var frame = document.getElementById("hidden-frame");
+var fallbackSent = false;
+
+function showDone() {
+  form.style.display = "none";
+  statusKey = "thanks";
+  renderStatus();
+}
+function showFail(detail) {
+  statusKey = "error";
+  sendBtn.disabled = false;
+  renderStatus();
+  if (detail) {
+    document.getElementById("status").textContent += " (" + detail + ")";
+  }
+}
+// Reservväg: vanlig POST till en dold iframe (ingen sidomladdning, inget nytt fönster)
+function sendViaFrame() {
+  fallbackSent = true;
+  form.target = "hidden-frame";
+  HTMLFormElement.prototype.submit.call(form);
+}
+frame.addEventListener("load", function () {
+  if (fallbackSent) { showDone(); }
+});
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (Date.now() - loadedAt < 4000 || sendBtn.disabled) { return; }
@@ -342,19 +369,17 @@ form.addEventListener("submit", function (e) {
   })
   .then(function (r) { return r.json(); })
   .then(function (res) {
+    console.log("FormSubmit svar:", res);
     if (res.success === true || res.success === "true") {
-      form.style.display = "none";
-      statusKey = "thanks";
+      showDone();
     } else {
-      statusKey = "error";
-      sendBtn.disabled = false;
+      // Ofta: formuläret är inte aktiverat än. En vanlig POST skickar aktiveringsmejlet.
+      sendViaFrame();
     }
-    renderStatus();
   })
-  .catch(function () {
-    statusKey = "error";
-    sendBtn.disabled = false;
-    renderStatus();
+  .catch(function (err) {
+    console.log("FormSubmit fel:", err);
+    sendViaFrame();
   });
 });
 </script>

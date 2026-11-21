@@ -22,6 +22,9 @@
     input, textarea { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid #475569; background: #0f172a; color: #f8fafc; font-size: 1rem; font-family: inherit; }
     button { background: #38bdf8; color: #0f172a; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 4px; }
     button:hover { background: #0284c7; color: #ffffff; }
+    .status { display: none; padding: 18px; border-radius: 10px; font-size: 1.05rem; text-align: center; }
+    .status.ok { display: block; background: rgba(34,197,94,0.12); border: 1px solid #22c55e; color: #bbf7d0; }
+    .status.err { display: block; background: rgba(239,68,68,0.12); border: 1px solid #ef4444; color: #fecaca; margin-top: 12px; }
     .footer { margin-top: 18px; text-align: center; font-size: 0.85rem; color: #94a3b8; }
     @media (max-width: 480px) { .card { padding: 22px 16px; } h1 { font-size: 1.7rem; } }
   </style>
@@ -65,7 +68,7 @@
 
   <form id="offer-form" action="https://formsubmit.co/bp_andersen@hotmail.com" method="POST">
     <input type="hidden" name="_subject" value="Nytt bud på valuta.com">
-    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_captcha" value="false">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
     <input type="text" id="f-name" name="name" maxlength="100" required>
     <input type="text" id="f-company" name="company" maxlength="100" required>
@@ -74,6 +77,7 @@
     <textarea id="f-msg" name="message" rows="3" maxlength="2000" required></textarea>
     <button type="submit" id="t-btn"></button>
   </form>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
 
   <div class="footer" id="t-seller"></div>
 </div>
@@ -90,6 +94,8 @@ var langData = {
     b2t: "Short, exact-match .com domain built for trust in fintech, banking, and FX.",
     name: "Your name",
     company: "Company",
+    thanks: "Thank you! Your offer has been sent. Mr Andersen will get back to you soon.",
+    error: "Something went wrong. Please try again.",
     email: "Your email",
     offer: "Your offer (EUR / USD / SEK)",
     msg: "Message",
@@ -106,6 +112,8 @@ var langData = {
     b2t: "Kort, exakt .com-domän som skapar omedelbart förtroende inom fintech och finans.",
     name: "Ditt namn",
     company: "Företag",
+    thanks: "Tack! Ditt bud har skickats. Mr Andersen återkommer till dig snart.",
+    error: "Något gick fel. Försök igen.",
     email: "Din e-postadress",
     offer: "Ditt bud (SEK / EUR / USD)",
     msg: "Meddelande",
@@ -122,6 +130,8 @@ var langData = {
     b2t: "Kort, eksakt .com-domene som skaper umiddelbar tillit i finansbransjen.",
     name: "Ditt navn",
     company: "Firma",
+    thanks: "Takk! Budet ditt er sendt. Mr Andersen tar kontakt snart.",
+    error: "Noe gikk galt. Prøv igjen.",
     email: "Din e-postadresse",
     offer: "Ditt bud (NOK / EUR / USD)",
     msg: "Melding",
@@ -138,6 +148,8 @@ var langData = {
     b2t: "Kort, præcist .com-domæne der skaber øjeblikkelig tillid i finanssektoren.",
     name: "Dit navn",
     company: "Virksomhed",
+    thanks: "Tak! Dit bud er sendt. Mr Andersen vender snart tilbage til dig.",
+    error: "Noget gik galt. Prøv igen.",
     email: "Din e-mailadresse",
     offer: "Dit bud (DKK / EUR / USD)",
     msg: "Besked",
@@ -154,6 +166,8 @@ var langData = {
     b2t: "Kort, exact .com-domein dat direct vertrouwen wekt in de financiële wereld.",
     name: "Uw naam",
     company: "Bedrijf",
+    thanks: "Bedankt! Uw bod is verzonden. Mr Andersen neemt binnenkort contact met u op.",
+    error: "Er ging iets mis. Probeer het opnieuw.",
     email: "Uw e-mailadres",
     offer: "Uw bod (EUR / USD)",
     msg: "Bericht",
@@ -170,6 +184,8 @@ var langData = {
     b2t: "Dominio .com breve ed esatto, ideale per ispirare fiducia nella finanza.",
     name: "Il tuo nome",
     company: "Azienda",
+    thanks: "Grazie! La tua offerta è stata inviata. Mr Andersen ti risponderà a breve.",
+    error: "Qualcosa è andato storto. Riprova.",
     email: "La tua email",
     offer: "La tua offerta (EUR / USD)",
     msg: "Messaggio",
@@ -186,6 +202,8 @@ var langData = {
     b2t: "Kurze, exakte .com-Domain für höchstes Vertrauen im Finanz- und FX-Sektor.",
     name: "Ihr Name",
     company: "Unternehmen",
+    thanks: "Vielen Dank! Ihr Gebot wurde gesendet. Mr Andersen meldet sich in Kürze bei Ihnen.",
+    error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     email: "Ihre E-Mail-Adresse",
     offer: "Ihr Gebot (EUR / CHF / USD)",
     msg: "Nachricht",
@@ -202,6 +220,8 @@ var langData = {
     b2t: "Krátká a přesná .com doména, která budí okamžitou důvěru ve světě financí.",
     name: "Vaše jméno",
     company: "Společnost",
+    thanks: "Děkujeme! Vaše nabídka byla odeslána. Mr Andersen se vám brzy ozve.",
+    error: "Něco se pokazilo. Zkuste to prosím znovu.",
     email: "Váš e-mail",
     offer: "Vaše nabídka (CZK / EUR / USD)",
     msg: "Zpráva",
@@ -218,6 +238,8 @@ var langData = {
     b2t: "Krátka a presná .com doména, ktorá budí okamžitú dôveru vo svete financií.",
     name: "Vaše meno",
     company: "Spoločnosť",
+    thanks: "Ďakujeme! Vaša ponuka bola odoslaná. Mr Andersen sa vám čoskoro ozve.",
+    error: "Niečo sa pokazilo. Skúste to prosím znova.",
     email: "Váš e-mail",
     offer: "Vaša ponuka (EUR / USD)",
     msg: "Správa",
@@ -234,6 +256,8 @@ var langData = {
     b2t: "Rövid, pontos .com domain, amely azonnali bizalmat épít a pénzügyi szektorban.",
     name: "Az Ön neve",
     company: "Cég",
+    thanks: "Köszönjük! Ajánlatát elküldtük. Mr Andersen hamarosan felveszi Önnel a kapcsolatot.",
+    error: "Hiba történt. Kérjük, próbálja újra.",
     email: "Az Ön e-mail címe",
     offer: "Az Ön ajánlata (HUF / EUR / USD)",
     msg: "Üzenet",
@@ -250,6 +274,8 @@ var langData = {
     b2t: "Kratka i precizna .com domena koja ulijeva trenutno povjerenje u financijama.",
     name: "Vaše ime",
     company: "Tvrtka",
+    thanks: "Hvala! Vaša ponuda je poslana. Mr Andersen će vam se uskoro javiti.",
+    error: "Nešto je pošlo po zlu. Pokušajte ponovno.",
     email: "Vaš e-mail",
     offer: "Vaša ponuda (EUR / USD)",
     msg: "Poruka",
@@ -258,6 +284,14 @@ var langData = {
   }
 };
 
+var statusKey = null;
+function renderStatus() {
+  var el = document.getElementById("status");
+  if (!statusKey) { el.className = "status"; el.textContent = ""; return; }
+  el.className = "status " + (statusKey === "thanks" ? "ok" : "err");
+  el.textContent = langData[currentLang][statusKey];
+}
+var currentLang = "en";
 function updatePageLanguage(code) {
   var lang = langData[code] ? code : "en";
   var d = langData[lang];
@@ -278,6 +312,8 @@ function updatePageLanguage(code) {
   document.getElementById("t-btn").textContent = d.btn;
   document.getElementById("t-seller").textContent = d.seller;
   document.title = "valuta.com – " + d.badge;
+  currentLang = lang;
+  renderStatus();
 }
 
 var menu = document.getElementById("lang-menu");
@@ -287,13 +323,39 @@ menu.addEventListener("change", function () {
 
 updatePageLanguage("en");
 
-// Anti-spam: blockera bottar som skickar direkt, och dubbelklick
+// Skicka utan att lämna sidan + anti-spam
 var loadedAt = Date.now();
-document.getElementById("offer-form").addEventListener("submit", function (e) {
-  if (Date.now() - loadedAt < 4000) { e.preventDefault(); return; }
-  var b = document.getElementById("t-btn");
-  if (b.disabled) { e.preventDefault(); return; }
-  setTimeout(function () { b.disabled = true; }, 0);
+var form = document.getElementById("offer-form");
+var sendBtn = document.getElementById("t-btn");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (Date.now() - loadedAt < 4000 || sendBtn.disabled) { return; }
+  if (form.elements["_honey"].value) { return; }
+  sendBtn.disabled = true;
+  statusKey = null; renderStatus();
+  var data = {};
+  new FormData(form).forEach(function (v, k) { data[k] = v; });
+  fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(function (r) { return r.json(); })
+  .then(function (res) {
+    if (res.success === true || res.success === "true") {
+      form.style.display = "none";
+      statusKey = "thanks";
+    } else {
+      statusKey = "error";
+      sendBtn.disabled = false;
+    }
+    renderStatus();
+  })
+  .catch(function () {
+    statusKey = "error";
+    sendBtn.disabled = false;
+    renderStatus();
+  });
 });
 </script>
 </body>
